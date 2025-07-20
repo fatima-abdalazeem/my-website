@@ -1,0 +1,157 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Contact</title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css"/>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      margin: 0;
+      padding: 40px 20px;
+      background-color: #f2f2f2;
+      text-align: center;
+    }
+
+    .contact {
+      max-width: 600px;
+      margin: auto;
+      background-color: #fff;
+      padding: 30px;
+      border-radius: 10px;
+      box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+    }
+
+    .title {
+      font-size: 28px;
+      color: #333;
+      margin-bottom: 20px;
+    }
+
+    .content {
+      display: flex;
+      flex-direction: column;
+      gap: 20px;
+    }
+
+    .card {
+      display: flex;
+      align-items: center;
+      background-color: #fafafa;
+      border: 1px solid #ddd;
+      padding: 15px 20px;
+      border-radius: 8px;
+      box-shadow: 0 2px 5px rgba(0,0,0,0.05);
+    }
+
+    .icon {
+      font-size: 24px;
+      color: #ad4747;
+      margin-right: 15px;
+    }
+
+    .info h3 {
+      margin: 0;
+      font-size: 18px;
+      color: #222;
+    }
+
+    .info p {
+      margin: 5px 0 0;
+      color: #555;
+      font-size: 16px;
+    }
+
+    @media (max-width: 500px) {
+      .card {
+        flex-direction: column;
+        align-items: center;
+        text-align: center;
+      }
+
+      .icon {
+        margin-right: 0;
+        margin-bottom: 10px;
+      }
+    }
+
+    /* Footer Styling */
+    .footer {
+      margin-top: 50px;
+      padding: 20px;
+      background-color: #fff;
+      border-top: 1px solid #ccc;
+    }
+
+    .footre-title {
+      margin: 0;
+      font-size: 16px;
+      color: #444;
+    }
+
+    .footre-title span {
+      color: #ad4747;
+      font-weight: bold;
+    }
+
+    .social-icon {
+      margin-top: 10px;
+    }
+
+    .social-icon a {
+      margin: 0 10px;
+      font-size: 20px;
+      color: #ad4747;
+      text-decoration: none;
+      transition: color 0.3s ease;
+    }
+
+    .social-icon a:hover {
+      color: #333;
+    }
+  </style>
+</head>
+<body>
+
+  <section class="card contact" id="contact">
+    <h2 class="title">Let's Learn Together</h2>
+    <div class="content">
+      
+      <!-- Phone Card -->
+      <div class="card">
+        <div class="icon">
+          <i class="fas fa-phone"></i>
+        </div>
+        <div class="info">
+          <h3>Phone</h3>
+          <p>+249115785594</p>
+        </div>
+      </div>
+
+      <!-- Email Card -->
+      <div class="card">
+        <div class="icon">
+          <i class="fas fa-envelope"></i>
+        </div>
+        <div class="info">
+          <h3>Email</h3>
+          <p>fatimaabdalazeem20@gmail.com</p>
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- Footer Section -->
+  <footer class="footer">
+    <p class="footre-title">copyright © <span>Fatima Abdalazeem</span></p>
+    <div class="social-icon">
+      <a href="#"><i class="fab fa-whatsapp"></i></a>
+      <a href="#"><i class="fab fa-youtube"></i></a>
+      <a href="#"><i class="fab fa-telegram"></i></a>
+    </div>
+  </footer>
+
+</body>
+</html>
