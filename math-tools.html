@@ -10,14 +10,11 @@
       padding: 30px;
       direction: rtl;
     }
-
     .top-bar {
       display: flex;
       justify-content: flex-end;
       padding: 10px 20px;
-      position: relative;
     }
-
     .lang-btn {
       font-size: 12px;
       color: #f9fafc;
@@ -26,22 +23,17 @@
       border: 1px solid #f9fafc;
       border-radius: 4px;
       cursor: pointer;
-      transition: background-color 0.3s;
     }
-
     .lang-btn:hover {
       background-color: #ddd;
       color: #000;
     }
-
     .title {
       color: blue;
       font-size: 28px;
       font-weight: bold;
-      text-align: center;
       margin-bottom: 40px;
     }
-
     .container {
       max-width: 500px;
       margin: auto;
@@ -50,39 +42,31 @@
       border-radius: 10px;
       margin-bottom: 30px;
     }
-
     input, button {
       padding: 10px;
       margin: 10px;
       font-size: 16px;
       width: 80%;
     }
-
     .result {
       margin-top: 15px;
       font-size: 17px;
       color: green;
       white-space: pre-line;
     }
-
     h2 {
       margin-bottom: 10px;
-    }
-
-    .container h2 {
-      color: rgb(146, 10, 10); 
+      color: rgb(146, 10, 10);
     }
   </style>
 </head>
 <body>
 
-  <!-- شريط علوي يحتوي زر تغيير اللغة -->
   <div class="top-bar">
     <button class="lang-btn" onclick="toggleLanguage()">English</button>
   </div>
 
-  <!-- العنوان الرئيسي -->
-  <div class="title" id="main-title">Arithmetic Programs</div>
+  <div class="title" id="main-title">برامج حسابية</div>
 
   <!-- حجم الأسطوانة -->
   <div class="container">
@@ -110,7 +94,7 @@
     <div class="result" id="circle-result"></div>
   </div>
 
-  <!-- حل معادلة تربيعية -->
+  <!-- معادلة تربيعية -->
   <div class="container">
     <h2 id="quad-title">حل معادلة من الدرجة الثانية</h2>
     <div>
@@ -144,9 +128,62 @@
 
       document.querySelector('.lang-btn').innerText = isAr ? "English" : "العربية";
       document.getElementById('main-title').innerText = isAr ? "برامج حسابية" : "Arithmetic Programs";
-
-      // الأسطوانة
-      document.getElementById('cyl-title').innerText = isAr ? "حساب حجم الأسطوانة" : "Cylinder Volume Calculator";
+      document.getElementById('cyl-title').innerText = isAr ? "حساب حجم الأسطوانة" : "Cylinder Volume";
       document.getElementById('cyl-radius-label').innerText = isAr ? "نصف القطر (سم):" : "Radius (cm):";
-      document.getElementById('cyl-height-label')
+      document.getElementById('cyl-height-label').innerText = isAr ? "الارتفاع (سم):" : "Height (cm):";
+      document.getElementById('cyl-btn').innerText = isAr ? "احسب الحجم" : "Calculate Volume";
+      document.getElementById('circle-title').innerText = isAr ? "حساب مساحة الدائرة" : "Circle Area";
+      document.getElementById('circle-radius-label').innerText = isAr ? "نصف القطر (سم):" : "Radius (cm):";
+      document.getElementById('circle-btn').innerText = isAr ? "احسب المساحة" : "Calculate Area";
+      document.getElementById('quad-title').innerText = isAr ? "حل معادلة من الدرجة الثانية" : "Quadratic Equation";
+      document.getElementById('a-label').innerText = isAr ? "القيمة a:" : "Value a:";
+      document.getElementById('b-label').innerText = isAr ? "القيمة b:" : "Value b:";
+      document.getElementById('c-label').innerText = isAr ? "القيمة c:" : "Value c:";
+      document.getElementById('quad-btn').innerText = isAr ? "حل المعادلة" : "Solve Equation";
     }
+
+    function calculateCylinder() {
+      const r = parseFloat(document.getElementById("cyl-radius").value);
+      const h = parseFloat(document.getElementById("cyl-height").value);
+      if (isNaN(r) || isNaN(h)) {
+        document.getElementById("cyl-result").innerText = "يرجى إدخال القيم بشكل صحيح.";
+        return;
+      }
+      const volume = Math.PI * r * r * h;
+      document.getElementById("cyl-result").innerText = "الحجم = " + volume.toFixed(2) + " سم³";
+    }
+
+    function calculateCircle() {
+      const r = parseFloat(document.getElementById("circle-radius").value);
+      if (isNaN(r)) {
+        document.getElementById("circle-result").innerText = "يرجى إدخال نصف القطر.";
+        return;
+      }
+      const area = Math.PI * r * r;
+      document.getElementById("circle-result").innerText = "المساحة = " + area.toFixed(2) + " سم²";
+    }
+
+    function solveQuadratic() {
+      const a = parseFloat(document.getElementById("a").value);
+      const b = parseFloat(document.getElementById("b").value);
+      const c = parseFloat(document.getElementById("c").value);
+      if (isNaN(a) || isNaN(b) || isNaN(c)) {
+        document.getElementById("quad-result").innerText = "يرجى إدخال القيم بشكل صحيح.";
+        return;
+      }
+
+      const discriminant = b * b - 4 * a * c;
+      if (discriminant < 0) {
+        document.getElementById("quad-result").innerText = "لا يوجد حلول حقيقية.";
+      } else if (discriminant === 0) {
+        const root = -b / (2 * a);
+        document.getElementById("quad-result").innerText = "جذر واحد: " + root.toFixed(2);
+      } else {
+        const root1 = (-b + Math.sqrt(discriminant)) / (2 * a);
+        const root2 = (-b - Math.sqrt(discriminant)) / (2 * a);
+        document.getElementById("quad-result").innerText = `جذر 1: ${root1.toFixed(2)}\\nجذر 2: ${root2.toFixed(2)}`;
+      }
+    }
+  </script>
+</body>
+</html>
